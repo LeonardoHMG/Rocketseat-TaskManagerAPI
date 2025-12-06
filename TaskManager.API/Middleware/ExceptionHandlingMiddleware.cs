@@ -64,6 +64,16 @@ public class ExceptionHandlingMiddleware
             });
         }
 
+        if (ex is ConflictException cex)
+        {
+            return (StatusCodes.Status409Conflict, new ErrorResponse
+            {
+                Status = StatusCodes.Status409Conflict,
+                Title = "Conflict",
+                Message = cex.Message
+            });
+        }
+
         return (StatusCodes.Status500InternalServerError, new ErrorResponse
         {
             Status = StatusCodes.Status500InternalServerError,

@@ -1,4 +1,5 @@
-﻿using TaskManager.Communication.Requests;
+﻿using TaskManager.Application.Exceptions;
+using TaskManager.Communication.Requests;
 
 namespace TaskManager.Application.Validation;
 public static class TaskValidator

@@ -1,6 +1,6 @@
-﻿using TaskManager.Application.Exceptions;
+﻿using TaskManager.Application.Validation;
 
-namespace TaskManager.Application.Validation;
+namespace TaskManager.Application.Exceptions;
 public sealed class ValidationException : AppException
 {
     public IReadOnlyList<ValidationError> Errors { get; }

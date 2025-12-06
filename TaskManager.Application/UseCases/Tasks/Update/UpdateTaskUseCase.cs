@@ -17,6 +17,11 @@ public class UpdateTaskUseCase
             throw new NotFoundException($"Task with ID {id} not found.");
         }
 
+        if (TaskAppService.Exists(request.Name, id))
+        {
+            throw new ConflictException($"A task with name '{request.Name}' already exists.");
+        }
+
         existingTask.Name = request.Name.Trim();
         existingTask.Description = request.Description?.Trim() ?? string.Empty;
         existingTask.Priority = request.Priority.Trim();

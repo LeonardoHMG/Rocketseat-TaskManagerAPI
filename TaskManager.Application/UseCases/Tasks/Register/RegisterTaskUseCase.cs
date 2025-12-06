@@ -1,4 +1,5 @@
 ﻿using TaskManager.Application.AppServices;
+using TaskManager.Application.Exceptions;
 using TaskManager.Application.Validation;
 using TaskManager.Communication.Requests;
 using TaskManager.Communication.Responses;
@@ -10,6 +11,11 @@ public class RegisterTaskUseCase
     public ResponseRegisteredTaskJson Execute(RequestTaskJson request)
     {
         TaskValidator.Validate(request);
+
+        if (TaskAppService.Exists(request.Name))
+        {
+            throw new ConflictException($"A task with name '{request.Name}' already exists.");
+        }
 
         var newTask = new TaskEntity
         {

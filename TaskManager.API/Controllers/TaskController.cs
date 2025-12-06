@@ -16,6 +16,7 @@ public class TaskController : ControllerBase
     [HttpPost]
     [ProducesResponseType(typeof(ResponseRegisteredTaskJson), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status409Conflict)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status500InternalServerError)]
     public IActionResult CreateTask([FromBody] RequestTaskJson request)
     {
@@ -57,6 +58,7 @@ public class TaskController : ControllerBase
     [Route("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status409Conflict)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status500InternalServerError)]
     public IActionResult Upadate([FromRoute] Guid id, [FromBody] RequestTaskJson request)
     {

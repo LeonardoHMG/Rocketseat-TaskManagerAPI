@@ -1,4 +1,6 @@
-﻿using TaskManager.Domain.Entities;
+﻿using System.Xml.Linq;
+using TaskManager.Domain.Entities;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace TaskManager.Application.AppServices;
 public static class TaskAppService
@@ -38,4 +40,15 @@ public static class TaskAppService
         var item = tasks.FirstOrDefault(t => t.Id == id);
         if (item != null) tasks.Remove(item);
     }
+
+    public static bool Exists(string name, Guid? exceptId = null)
+    {
+        var normalizedName = name.Trim().ToLower();
+
+        return tasks.Any(t =>
+            t.Name.Trim().ToLower() == normalizedName &&
+            (exceptId == null || t.Id != exceptId)
+        );
+    }
+
 }
