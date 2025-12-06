@@ -8,7 +8,6 @@ Este projeto é uma API REST completa desenvolvida em .NET, criada como parte da
 A aplicação utiliza uma arquitetura em camadas, aplicando boas práticas ao separar claramente a Camada de Comunicação da Camada de Regras de Negócio.
 
 A API foi projetada para gerenciar tarefas, oferecendo um CRUD completo, com validações robustas, tratamento adequado de status codes e documentação integrada via Swagger, garantindo organização, consistência e facilidade de uso.
----
 
 ## 🚀 Funcionalidades
 
@@ -216,13 +215,13 @@ TaskManager/
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/LeonardoHMG/Rocketseat-BookstoreManagerAPI.git
+git clone https://github.com/LeonardoHMG/Rocketseat-TaskManagerAPI.git
 ```
 
 2. Navegue até o diretório do projeto:
 
 ```bash
-cd Rocketseat-BookstoreManagerAPI
+cd Rocketseat-TaskManagerAPI
 ```
 
 3. Execute o projeto no terminal ou no Visual Studio:
